@@ -71,7 +71,7 @@
                         <tr>
                             <th>Gun Part ID</th>
                             <th>Description</th>
-                            <th>Monthly limit</th>
+                            <th>Monthly Limit</th>
                             <th>Price</th>
                         </tr>
                         </thead>
@@ -81,7 +81,7 @@
                                 <td>${production.gunpartid}</td>
                                 <td>${production.description}</td>
                                 <td>${production.monthlylimit}</td>
-                                <td>${production.price}</td>
+                                <td>$${production.price}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
