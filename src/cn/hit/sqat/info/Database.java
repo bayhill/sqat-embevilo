@@ -59,7 +59,6 @@ public final class Database {
         } catch(final SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

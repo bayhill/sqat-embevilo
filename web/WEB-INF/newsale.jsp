@@ -99,22 +99,24 @@
                                     <td>Products</td>
                                     <td>Lock</td>
                                     <td>
-                                        <input name="locks" type="number" style="width: 45px; padding: 1px" value="0" min="0">
+                                        <input name="locks" type="number" style="width: 45px; padding: 1px" min="1"
+                                               value="1">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td>Stock</td>
                                     <td>
-                                        <input name="stocks" type="number" style="width: 45px; padding: 1px" min="0" value="0">
+                                        <input name="stocks" type="number" style="width: 45px; padding: 1px" min="1"
+                                               value="1">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td>Barrell</td>
                                     <td>
-                                        <input name="barrells" type="number" style="width: 45px; padding: 1px" min="0"
-                                               value="0">
+                                        <input name="barrells" type="number" style="width: 45px; padding: 1px" min="1"
+                                               value="1">
                                     </td>
                                 </tr>
                             </table>
