@@ -23,9 +23,5 @@ public final class Project {
         return (int)Math.round(commission);
     }
 
-    public static void main(String[] args) {
-        System.out.println(calculateCommission(2500));
-    }
-
     private Project() { throw new AssertionError(); }
 }

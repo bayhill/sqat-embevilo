@@ -1,6 +1,5 @@
 package cn.hit.sqat.servlets;
 
-import cn.hit.sqat.beans.SalesBean;
 import cn.hit.sqat.dao.SalesDAO;
 import cn.hit.sqat.login.Login;
 import cn.hit.sqat.login.UserType;
@@ -14,24 +13,17 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Emil
- * Date: 2013-06-06
- * Time: 22:21
- * To change this template use File | Settings | File Templates.
- */
-@WebServlet("/sales")
+@WebServlet("/sm_sales")
 public class SalesServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = Login.getUserAuthentication(request.getSession()).getUserId();
         UserType userType = Login.getUserAuthentication(request.getSession()).getUserType();
         java.sql.Date date = new java.sql.Date(parseDate(request).getTime());
-        if(userType == UserType.SALESMAN){
+        if(userType == UserType.SALESMAN) {
             List<cn.hit.sqat.beans.SalesBean> lockSalesList = SalesDAO.getSales(userType, userId, 400, date);
             List<cn.hit.sqat.beans.SalesBean> stockSalesList = SalesDAO.getSales(userType, userId, 401, date);
             List<cn.hit.sqat.beans.SalesBean> barrellSalesList = SalesDAO.getSales(userType, userId, 402, date);
@@ -46,14 +38,14 @@ public class SalesServlet extends HttpServlet {
             request.setAttribute("stocksalestotal", stockSalesTotal);
             request.setAttribute("barrellsalestotal", barrellSalesTotal);
             request.setAttribute("salestotal", salesTotal);
-            request.getRequestDispatcher("/WEB-INF/sales.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/sm_sales.jsp").forward(request, response);
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = Login.getUserAuthentication(request.getSession()).getUserId();
         UserType userType = Login.getUserAuthentication(request.getSession()).getUserType();
-        if(userType == UserType.SALESMAN){
+        if(userType == UserType.SALESMAN) {
             List<cn.hit.sqat.beans.SalesBean> lockSalesList = SalesDAO.getSales(userType, userId, 400, new Date());
             List<cn.hit.sqat.beans.SalesBean> stockSalesList = SalesDAO.getSales(userType, userId, 401, new Date());
             List<cn.hit.sqat.beans.SalesBean> barrellSalesList = SalesDAO.getSales(userType, userId, 402, new Date());
@@ -68,25 +60,26 @@ public class SalesServlet extends HttpServlet {
             request.setAttribute("stocksalestotal", stockSalesTotal);
             request.setAttribute("barrellsalestotal", barrellSalesTotal);
             request.setAttribute("salestotal", salesTotal);
-            request.getRequestDispatcher("/WEB-INF/sales.jsp").forward(request, response);
-        }else{
+            request.getRequestDispatcher("/WEB-INF/sm_sales.jsp").forward(request, response);
+        } else {
             List<cn.hit.sqat.beans.SalesBean> salesList;
             salesList = SalesDAO.getSales(userType, userId, new Date());
             request.setAttribute("sales", salesList);
-            request.getRequestDispatcher("/WEB-INF/sales.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/sm_sales.jsp").forward(request, response);
         }
     }
+
     public Date parseDate(HttpServletRequest request) {
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMMMMMMMM yyyy", Locale.US);
         final String viewDateString = request.getParameter("datepicker");
 
         Date viewDate;
-        if (viewDateString == null)
+        if(viewDateString == null)
             viewDate = new Date();
         else {
             try {
                 viewDate = dateFormat.parse(viewDateString);
-            } catch (final ParseException e) {
+            } catch(final ParseException e) {
                 viewDate = new Date();
             }
         }

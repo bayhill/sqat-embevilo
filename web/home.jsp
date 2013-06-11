@@ -59,8 +59,8 @@
             <div class="span6">
                 <div class="row-fluid">
                     <div class="span12">
-                        <h2>Home</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique pretium urna, sit amet laoreet odio. Donec tincidunt in tellus quis euismod. Suspendisse nisi nibh, ornare non risus ac, congue lacinia enim. Aenean rutrum feugiat viverra. Integer ligula sapien, congue ac pretium nec, aliquam a metus. Pellentesque at mi vulputate, varius dui a, gravida nisl. Maecenas quis pretium leo. Nulla vehicula ligula at.</p>
+                        <h2>Welcome, <%=Login.getUserAuthentication(session).getUsername()%>!</h2>
+                        <p>Please use the navigation menu to the left in order to navigate the service.</p>
                     </div>
                     <!--/span-->
                 </div>

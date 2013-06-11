@@ -10,8 +10,6 @@
             final String currentRequest = request.getRequestURI();
             final String pageName = currentRequest.substring(currentRequest.lastIndexOf('/'));
 
-            System.out.println(pageName);
-
             final UserType userType = Login.getUserAuthentication(session).getUserType();
             for(final Map.Entry<String, String> menuEntry : userType.getMenuLinks().entrySet()) {
                 final String menuEntryPage = menuEntry.getValue().endsWith(".jsp") ?

@@ -17,14 +17,7 @@
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%
-    final Login.Error error = Login.isAuthenticated(session);
-    if(error != Login.Error.NONE) {
-        response.sendRedirect(error.getRedirect());
-        return;
-    }
-%>
-
+<%@include file="auth.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

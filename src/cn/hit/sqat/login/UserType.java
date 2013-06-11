@@ -34,7 +34,7 @@ public enum UserType {
             final Map<String, String> menuLinks = new LinkedHashMap<String, String>();
             menuLinks.put("Home", "/home.jsp");
             menuLinks.put("New Sale", "/newsale");
-            menuLinks.put("Sales", "/sales");
+            menuLinks.put("Sales", "/sm_sales");
             menuLinks.put("Commission", "/sm_commission.jsp");
             return menuLinks;
         }

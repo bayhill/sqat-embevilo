@@ -187,8 +187,44 @@ public class SalesDAO {
         return null;
     }
 
+    public static boolean checkValidSale(String gunsmith, Date date, Map<Integer, Integer> parts) {
+        final Calendar c = Calendar.getInstance();
+        c.setTime(date);
+
+        final int year = c.get(Calendar.YEAR), month = 1 + c.get(Calendar.MONTH);
+        final String query = "SELECT s.gunpartid, p.monthlylimit - SUM(s.quantity) FROM sales s, production p " +
+                "WHERE p.gunsmithid = s.gunsmithid AND p.gunpartid = s.gunpartid AND " +
+                "s.gunsmithid = " + gunsmith +
+                " AND YEAR(s.date) = " + year +
+                " AND MONTH(s.date) = " + month +
+                " GROUP BY s.gunpartid";
+
+        final ResultSet rs = Database.query(query);
+        try {
+            while(rs.next()) {
+                final int partId = Integer.parseInt(rs.getString(0));
+                if(parts.containsKey(partId)) {
+                    final int soldParts = parts.get(partId);
+                    if(soldParts > Integer.parseInt(rs.getString(1)))
+                        return false;
+                }
+            }
+
+            return true;
+        } catch(final SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static boolean createNewSale(String salesman, String gunsmith, int city, Date date, Map<Integer, Integer> parts) {
         Database.connect();
+
+        if(!checkValidSale(gunsmith, date, parts)) {
+            Database.disconnect();
+            return false;
+        }
+
         boolean result = true;
         java.sql.Date sqlDate = new Date(date.getTime());
         Iterator<Map.Entry<Integer, Integer>> it = parts.entrySet().iterator();
