@@ -81,14 +81,15 @@
                         <table>
                             <tr>
                                 <form title="dateform">
+                                    <td><label for="datepicker">Period:</label>
+                                    </td>
                                     <td><input name="datepicker" type="text" id="datepicker" style="margin-bottom: 0"
                                                class="ui-datepicker"/>
                                     </td>
                                     <td>
-                                        <button name="view" id="view" value="1" class="btn btn-success">View</button>
-                                    </td>
-                                    <td>
-                                        <div id="response"></div>
+                                        <button name="viewBtn" id="view" class="btn btn-success">
+                                            View
+                                        </button>
                                     </td>
                                 </form>
                             </tr>
@@ -238,23 +239,5 @@
 
     </div>
     <!--/.fluid-container-->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap-transition.js"></script>
-    <script src="assets/js/bootstrap-alert.js"></script>
-    <script src="assets/js/bootstrap-modal.js"></script>
-    <script src="assets/js/bootstrap-dropdown.js"></script>
-    <script src="assets/js/bootstrap-scrollspy.js"></script>
-    <script src="assets/js/bootstrap-tab.js"></script>
-    <script src="assets/js/bootstrap-tooltip.js"></script>
-    <script src="assets/js/bootstrap-popover.js"></script>
-    <script src="assets/js/bootstrap-button.js"></script>
-    <script src="assets/js/bootstrap-collapse.js"></script>
-    <script src="assets/js/bootstrap-carousel.js"></script>
-    <script src="assets/js/bootstrap-typeahead.js"></script>
-
 </body>
 </html>
