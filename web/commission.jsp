@@ -74,7 +74,7 @@
                 <jsp:include page="menu.jsp"/>
             </div>
             <!--/span-->
-            <div class="span6">
+            <div class="span9">
                 <div class="row-fluid">
                     <div class="span12">
                         <h2>Commission</h2>
