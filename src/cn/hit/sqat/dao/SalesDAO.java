@@ -202,10 +202,10 @@ public class SalesDAO {
         final ResultSet rs = Database.query(query);
         try {
             while(rs.next()) {
-                final int partId = Integer.parseInt(rs.getString(0));
+                final int partId = Integer.parseInt(rs.getString(1));
                 if(parts.containsKey(partId)) {
                     final int soldParts = parts.get(partId);
-                    if(soldParts > Integer.parseInt(rs.getString(1)))
+                    if(soldParts > Integer.parseInt(rs.getString(2)))
                         return false;
                 }
             }
