@@ -103,7 +103,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><b>Stock</b></td>
+                                    <td><b>Stocks</b></td>
                                     <td>
                                         <input name="stocks" type="number" style="width: 45px; padding: 1px" min="1"
                                                value="1">

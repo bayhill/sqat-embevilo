@@ -211,7 +211,11 @@
                             </table>
                             <b>Total Value:</b> $<%=overallTotal%><br/>
                             <b>Commission:</b> $<%=overallCommission%><br/>
-                        <%}%>
+                        <%
+                        } else {
+                            %><br/>There are no entries available for the selected time period.<%
+                        }
+                    %>
                     </div>
                     <!--/span-->
                 </div>
