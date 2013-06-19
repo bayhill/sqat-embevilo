@@ -2,7 +2,7 @@
 <%@ page import="cn.hit.sqat.login.Login" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%@include file="auth.jsp"%>
+<%@include file="auth.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +27,7 @@
                 }
             });
         });
-        function clearfields(){
+        function clearfields() {
             document.getElementById('inputsale').reset();
         }
     </script>
@@ -66,76 +66,75 @@
         <!--/span-->
         <div class="span9">
             <div class="row-fluid">
-                <div class="span6">
-                    <form id="inputsale" method="POST">
-                        <fieldset>
-                            <h2>New sale</h2>
-                            <div class="row-fluid">
-                                <div class="span4">
-                                    <label><b>Gunsmith</b></label>
-                                    <select name="gunsmith">
-                                        <c:forEach items="${gunsmiths}" var="gunsmith">
-                                            <option value="${gunsmith.gunsmithid}">${gunsmith.name}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="span4">
-                                    <label><b>City</b></label>
-                                    <select name="city">
-                                        <c:forEach items="${cities}" var="city">
-                                            <option value="${city.cityid}">${city.name}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="span4">
-                                    <label for="datepicker"><b>Period</b></label>
-                                    <input name="datepicker" type="text" id="datepicker" style="margin-bottom: 0"
-                                           class="ui-datepicker"/>
-                                </div>
+                <form id="inputsale" method="POST">
+                    <fieldset>
+                        <h2>New sale</h2>
+
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <label><b>Gunsmith</b></label>
+                                <select name="gunsmith">
+                                    <c:forEach items="${gunsmiths}" var="gunsmith">
+                                        <option value="${gunsmith.gunsmithid}">${gunsmith.name}</option>
+                                    </c:forEach>
+                                </select>
                             </div>
-                            <br/>
-                            <table class="table">
-                                <tr>
-                                    <td><b>Locks</b></td>
-                                    <td>
-                                        <input name="locks" type="number" style="width: 45px; padding: 1px" min="1"
-                                               value="1">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b>Stock</b></td>
-                                    <td>
-                                        <input name="stocks" type="number" style="width: 45px; padding: 1px" min="1"
-                                               value="1">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b>Barrells</b></td>
-                                    <td>
-                                        <input name="barrells" type="number" style="width: 45px; padding: 1px" min="1"
-                                               value="1">
-                                    </td>
-                                </tr>
-                            </table>
-                            <button type="submit" class="btn btn-primary">Confirm</button>
-                            <button type="button" class="btn" onclick="clearfields()">Reset</button>
-                        </fieldset>
-                    </form>
-                    <c:choose>
-                        <c:when test="${result == 'fail'}">
-                            <div class="alert alert-error">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong>Failure!</strong> The new sale order was not submitted.
+                            <div class="span4">
+                                <label><b>City</b></label>
+                                <select name="city">
+                                    <c:forEach items="${cities}" var="city">
+                                        <option value="${city.cityid}">${city.name}</option>
+                                    </c:forEach>
+                                </select>
                             </div>
-                        </c:when>
-                        <c:when test="${result == 'success'}">
-                            <div class="alert alert-success">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong>Success!</strong> The new sale order was submitted.
+                            <div class="span4">
+                                <label for="datepicker"><b>Period</b></label>
+                                <input name="datepicker" type="text" id="datepicker" style="margin-bottom: 0"
+                                       class="ui-datepicker"/>
                             </div>
-                        </c:when>
-                    </c:choose>
-                </div>
+                        </div>
+                        <br/>
+                        <table class="table">
+                            <tr>
+                                <td><b>Locks</b></td>
+                                <td>
+                                    <input name="locks" type="number" style="width: 45px; padding: 1px" min="1"
+                                           value="1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Stock</b></td>
+                                <td>
+                                    <input name="stocks" type="number" style="width: 45px; padding: 1px" min="1"
+                                           value="1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Barrells</b></td>
+                                <td>
+                                    <input name="barrells" type="number" style="width: 45px; padding: 1px" min="1"
+                                           value="1">
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                        <button type="button" class="btn" onclick="clearfields()">Reset</button>
+                    </fieldset>
+                </form>
+                <c:choose>
+                    <c:when test="${result == 'fail'}">
+                        <div class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Failure!</strong> The new sale order was not submitted.
+                        </div>
+                    </c:when>
+                    <c:when test="${result == 'success'}">
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Success!</strong> The new sale order was submitted.
+                        </div>
+                    </c:when>
+                </c:choose>
                 <!--/span-->
             </div>
             <!--/row-->
