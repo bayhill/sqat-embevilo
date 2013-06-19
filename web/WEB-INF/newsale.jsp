@@ -93,39 +93,39 @@
                                        class="ui-datepicker"/>
                             </div>
                         </div>
-                        <br/>
-                        <table class="table">
-                            <tr>
-                                <td><b>Locks</b></td>
-                                <td>
-                                    <input name="locks" type="number" style="width: 45px; padding: 1px" min="1"
-                                           value="1">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b>Stock</b></td>
-                                <td>
-                                    <input name="stocks" type="number" style="width: 45px; padding: 1px" min="1"
-                                           value="1">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b>Barrells</b></td>
-                                <td>
-                                    <input name="barrells" type="number" style="width: 45px; padding: 1px" min="1"
-                                           value="1">
-                                </td>
-                            </tr>
-                        </table>
-                        <button type="submit" class="btn btn-primary">Confirm</button>
-                        <button type="button" class="btn" onclick="clearfields()">Reset</button>
-                    </fieldset>
-                </form>
-                <c:choose>
-                    <c:when test="${result == 'fail'}">
-                        <div class="alert alert-error">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>Failure!</strong> The new sale order was not submitted.
+                            <br/>
+                            <table class="table">
+                                <tr>
+                                    <td><b>Locks</b></td>
+                                    <td>
+                                        <input name="locks" type="number" style="width: 45px; padding: 1px" min="1"
+                                               value="1">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Stocks</b></td>
+                                    <td>
+                                        <input name="stocks" type="number" style="width: 45px; padding: 1px" min="1"
+                                               value="1">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Barrells</b></td>
+                                    <td>
+                                        <input name="barrells" type="number" style="width: 45px; padding: 1px" min="1"
+                                               value="1">
+                                    </td>
+                                </tr>
+                            </table>
+                            <button type="submit" class="btn btn-primary">Confirm</button>
+                            <button type="button" class="btn" onclick="clearfields()">Reset</button>
+                        </fieldset>
+                    </form>
+                    <c:choose>
+                        <c:when test="${result == 'fail'}">
+                            <div class="alert alert-error">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Failure!</strong> The new sale order was not submitted.
                         </div>
                     </c:when>
                     <c:when test="${result == 'success'}">

@@ -1,17 +1,19 @@
 package cn.hit.sqat.info;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public final class Database {
 
-    private static final String URL_DATABASE = "jdbc:mysql://localhost:3306/commissionDB";
+    private static final String URL_DATABASE;
 
-    private static final String DATABASE_USERNAME = "root";
+    private static final String DATABASE_USERNAME;
 
-    private static final String DATABASE_PASSWORD = "root";
+    private static final String DATABASE_PASSWORD;
 
     private static Connection connection;
 
@@ -21,6 +23,17 @@ public final class Database {
         } catch(final Exception e) {
             e.printStackTrace();
         }
+
+        final Properties p = new Properties();
+        try {
+            p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("Database.properties"));
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        URL_DATABASE = "jdbc:mysql://" + p.getProperty("DatabaseHost") + "/" + p.getProperty("DatabaseName");
+        DATABASE_USERNAME = p.getProperty("DatabaseUser");
+        DATABASE_PASSWORD = p.getProperty("DatabasePass");
     }
 
     public static void connect() {
